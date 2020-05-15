@@ -5,6 +5,8 @@
 # Назначение: конвертер значений. No external libraries are required, and it works natively with Python 2 and 3.
 # Автор: http://opentechnotes.blogspot.com/2014/04/convert-values-to-from-integer-hex.html
 # Создан: 15.04.2019
+# Изменен:
+# Лицензия: MIT www.opensource.org/licenses/mit-license.php
 ########################################################################################################################
 
 
