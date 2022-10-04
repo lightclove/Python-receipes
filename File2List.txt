@@ -1,9 +1,0 @@
-SputnikUpdate
-SputnikCrashHandler
-SputnikCrashHandler64
-SputnikUpdateBroker
-SputnikUpdateOnDemand
-SputnikUpdateComRegisterShell64
-SputnikCrashHandler64
-SputnikUpdateWebPlugin
-SputnikUpdateComRegisterShell64
