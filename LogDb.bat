@@ -1,2 +1,0 @@
-py LogDb.py
-pause
