@@ -20,7 +20,7 @@ def animate():
     for c in itertools.cycle(['....','.......','..........','............']):
         if done:
             break
-        sys.stdout.write('\rCHECKING IP ADDRESS AND NOT USED PORT '+c)
+        sys.stdout.write('\rCHECKING IP ADDRESS AND PORT, WHICH NOT USED'+c)
         sys.stdout.flush()
         time.sleep(0.1)
     sys.stdout.write('\r -----SERVER STARTED. WAITING FOR CLIENT-----\n')
