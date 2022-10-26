@@ -1,4 +1,5 @@
-""" Python multiprocessing with shared memory example.
+""" 
+Python 2.7 multiprocessing with shared memory example. 
 
 This example demonstrate workaround for the GIL problem. Workaround uses
 processes instead of threads and RawArray allocated from shared memory.
