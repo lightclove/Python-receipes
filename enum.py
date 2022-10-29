@@ -18,3 +18,6 @@ class Monster(Enum):
     CYRIAK = auto() 
 
 print(Monster.PUTIN)
+
+# ImportError: cannot import name 'Enum' from partially initialized module 'enum' 
+# (most likely due to a circular import)
