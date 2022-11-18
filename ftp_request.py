@@ -1,3 +1,6 @@
+# Вот такую говнину я как-то наблюдал когда-то на проде. 
+# Нарушение всех правил. Так, больше для примера как делать точно не надо.
+
 import traceback, time, sys, logging
 from time import timezone
 from binascii import hexlify
@@ -91,12 +94,7 @@ def FtpUpload(ftp_dir='/tmp/ftp/', arc_subdir='_arch', *arg, **kwarg):
         engine.dispose()
     return ''
 
-#call osi.up_ftp_rmon_insert('/tmp/ftp/192.168.20.50/15min-ETH-s8p1-20210331.rmon', '192.168.20.50', '2021/03/31', 'SLOT-8/PORT-1', '15')
-#call osi.up_ftp_pmon_insert('/tmp/ftp/192.168.20.50/15min-RF-s9p1-20210331.pmon', '192.168.20.50', '2021/03/31', 'SLOT-9/PORT-1', '15')
-
-#FtpSync(ip='192.168.20.50',pwd='mus654321',lgn='musson')
-
-def FtpSync(ftp_dir='/tmp/ftp/',arc_subdir='_arch',ip='192.168.43.108',pwd='',lgn='',timeout=10, flow=0, ne_id=0, *arg,**kwarg):
+def FtpSync(ftp_dir='/tmp/ftp/',arc_subdir='_arch',ip='192.168.X.Y',pwd='',lgn='',timeout=10, flow=0, ne_id=0, *arg,**kwarg):
     try:
         rescode = 0
         logging.info('FtpSync > ftp_dir:{},arc_subdir:{},ip:{},'.format(ftp_dir,arc_subdir,ip))
@@ -166,7 +164,4 @@ def FtpSyncRescode(code):
              231: 'permission denied',
              250: 'path not found'}
     return value.get(code,'rescode not exists')
-
-#print(FtpSync('192.168.43.108'))
-#FtpSync(ip='192.168.20.50')
 
