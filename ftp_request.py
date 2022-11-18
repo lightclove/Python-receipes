@@ -14,10 +14,10 @@ from sqlalchemy.orm import Session
 from sqlalchemy import Table, Column, MetaData, create_engine, PickleType, Integer, String, JSON, Boolean
 from sqlalchemy.pool import NullPool
 
-import mussond, logmusson
+import mond, logmon
 
 
-print = logmusson.logger.info
+print = logmon.logger.info
 
 def FtpUpload(ftp_dir='/tmp/ftp/', arc_subdir='_arch', *arg, **kwarg):
     try:
@@ -31,7 +31,7 @@ def FtpUpload(ftp_dir='/tmp/ftp/', arc_subdir='_arch', *arg, **kwarg):
                         if os.path.isfile(dirpath + '/' + arc_subdir + '/' + filename):
                             os.remove(dirpath + '/' + arc_subdir + '/' + filename)
                         shutil.move(dirpath+'/'+filename, dirpath+'/'+arc_subdir)
-        engine = create_engine(mussond.enter, poolclass=NullPool, connect_args={'options': '-csearch_path={}'.format('osi'), 'connect_timeout': 5})
+        engine = create_engine(mond.enter, poolclass=NullPool, connect_args={'options': '-csearch_path={}'.format('osi'), 'connect_timeout': 5})
         session = Session(engine)
         for (dirpath, dirnames, filenames) in walk(ftp_dir):
             if os.path.basename(dirpath) != arc_subdir:
@@ -86,7 +86,7 @@ def FtpUpload(ftp_dir='/tmp/ftp/', arc_subdir='_arch', *arg, **kwarg):
     except Exception as e:
         logging.error(sys.exc_info())
         traceback.print_exc(file=sys.stdout)
-        file=open(logmusson.logfilename, 'a')
+        file=open(logmon.logfilename, 'a')
         traceback.print_exc(file=file)
         file.close()
     finally:
@@ -106,7 +106,7 @@ def FtpSync(ftp_dir='/tmp/ftp/',arc_subdir='_arch',ip='192.168.X.Y',pwd='',lgn='
         if not os.path.isdir(ftp_dir+ip+'/'+arc_subdir+'/'):
             os.makedirs(ftp_dir+ip+'/'+arc_subdir+'/')
 
-        # ftp = FTP(host='192.168.20.50', user='musson', passwd='mus654321', timeout=5)
+        # ftp = FTP(host='192.168.20.50', user='mon', passwd='mus654321', timeout=5)
         ftp = FTP(host=ip, user=lgn, passwd=pwd, timeout=timeout)
         for remote_dir in ['pmon','rmon']:
             ftp.cwd('/export/'+remote_dir)
@@ -152,7 +152,7 @@ def FtpSync(ftp_dir='/tmp/ftp/',arc_subdir='_arch',ip='192.168.X.Y',pwd='',lgn='
                 rescode = 250
         logging.error(sys.exc_info())
         traceback.print_exc(file=sys.stdout)
-        file=open(logmusson.logfilename, 'a')
+        file=open(logmon.logfilename, 'a')
         traceback.print_exc(file=file)
         file.close()
     return rescode
