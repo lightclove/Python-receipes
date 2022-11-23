@@ -1,0 +1,18 @@
+/: bus=001
+    |__ dev=001 class=hub
+        |__ dev=002 class=storage
+        |__ dev=003 class=storage
+        |__ dev=004 class=hub
+            |__ dev=005 class=storage
+            |__ dev=006 class=hub
+                |__ dev=013 class=storage
+        |__ dev=007 class=storage
+        |__ dev=012 class=storage
+    |__ dev=008 class=storage
+    |__ dev=014 class=hub
+        |__ dev=015 class=storage
+    |__ dev=018 class=storage
+/: bus=002
+    |__ dev=009 class=hub
+        |__ dev=010 class=storage
+    |__ dev=011 class=hub
